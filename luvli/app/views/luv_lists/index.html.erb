@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Luv Lists</h1>
+
+
+<% @luv_lists.each do |luv_list| %>
+  <div class="luv_list" id= "<%= dom_id(luv_list) %>" >
+        <h2><%= luv_list.title %></h2>
+        <p><%= luv_list.description %></p>
+        <ul class="functions">
+          <li><%= link_to "luvli items", luv_list_luvli_items_path(luv_list) %></li>
+          <li><%= link_to 'show', luv_list %></li>
+          <li><%= link_to 'edit', edit_luv_list_path(luv_list) %></li>
+          <li><%= link_to 'destroy', luv_list, method: :delete, data: { confirm: 'are you sure?' } %></li>
+        </ul>
+        <br class="clear" />
+  </div>
+
+<% end %>
+
+<br>
+
+<%= link_to 'new luv list', new_luv_list_path %>

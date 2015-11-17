@@ -1,0 +1,24 @@
+<hi><%= @luv_list.title %></h1>
+
+  <h2><%= @luv_list.description %></h2>
+
+  <% if @luv_list.has_incompleted_items? %>
+  <h3>Incomplete Luvli Items:</h3>
+  <ul>
+    <% @luv_list.luvli_items.incomplete.each do |luvli_item| %>
+    <li><%= luvli_item.content %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <% if @luv_list.has_completed_items? %>
+  <h3>Completed Luvlis:</h3>
+  <ul>
+    <% @luv_list.luvli_items.complete.each do |luvli_item| %>
+    <li><%= luvli_item.content %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%= link_to 'edit', edit_luv_list_path(@luv_list) %> |
+<%= link_to 'back', luv_lists_path %>
